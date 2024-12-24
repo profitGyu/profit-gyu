@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
-const NPStyles = styled.style`
+const NPStyles = createGlobalStyle`
   #nprogress {
     pointer-events: none;
   }
@@ -14,7 +14,7 @@ const NPStyles = styled.style`
     left: 0;
     z-index: 1031;
     width: 100%;
-    height: 10px;
+    height: 10px !important;
     background: #06c;
   }
 

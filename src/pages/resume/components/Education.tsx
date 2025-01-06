@@ -14,14 +14,21 @@ interface EducationProps {
 const Education = ({ items }: EducationProps) => {
   return (
     <Section as={motion.section} variants={sectionVariants}>
-      <h2>교육</h2>
+      <h2>Education</h2>
       <List>
         {items.map((item, index) => (
           <Item key={index}>
             <Period>{item.period}</Period>
             <Content>
               <Name>{item.name}</Name>
-              <Description>{item.description}</Description>
+              <Description>
+                {item.description.split('\n').map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < item.description.split('\n').length - 1 && <br />}
+                  </span>
+                ))}
+              </Description>
             </Content>
           </Item>
         ))}
@@ -65,6 +72,7 @@ const Name = styled.h3`
 
 const Description = styled.p`
   margin: 0;
+  line-height: 1.6;
   color: #444;
 `;
 

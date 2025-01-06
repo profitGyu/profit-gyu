@@ -5,7 +5,7 @@ interface ContactProps {
   email: string;
   phone: string;
   github: string;
-  blog: string;
+  blog?: string;
 }
 
 const Contact = ({ email, phone, github, blog }: ContactProps) => (
@@ -36,13 +36,15 @@ const Contact = ({ email, phone, github, blog }: ContactProps) => (
       >
         <strong>GitHub</strong>: <a href="https://github.com/profitGyu">{github}</a>
       </ListItem>
-      <ListItem
-        as={motion.li}
-        whileHover={{ x: 10 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <strong>Blog</strong>: <a href={blog} target="_blank" rel="noopener noreferrer">{blog}</a>
-      </ListItem>
+      {blog && (
+        <ListItem
+          as={motion.li}
+          whileHover={{ x: 10 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <strong>Blog</strong>: <a href={blog} target="_blank" rel="noopener noreferrer">{blog}</a>
+        </ListItem>
+      )}
     </ul>
   </Section>
 );

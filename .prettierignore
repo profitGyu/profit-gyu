@@ -1,0 +1,13 @@
+.github/*
+.husky/*
+.next/*
+.vscode/*
+.yarn/*
+node_modules/*
+
+.yarnrc.yml
+.eslintrc.cjs
+
+*.json
+
+README.md
